@@ -23,7 +23,7 @@ require("./config")(app);
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const mongoose = require('./db/index');
-const DB_URL = 'mongodb://localhost/artistsmatch';
+const DB_URL = 'mongodb+srv://Davidx8:Patiment88@cluster0.gzlzd.mongodb.net/sampcloudDB?retryWrites=true&w=majority';
 
 
 app.use(
