@@ -1,0 +1,162 @@
+{{#with producerDetails}}
+{{!-- NAV BEGINS --}}
+<nav>
+  <div class="nav-content">
+
+    <div class="nav-logo"><a href="/search"><img src="/images/orange-logo.png" style="height: 100%"></a></div>
+
+    <div class="nav-search">
+      <form action="/search" method="POST" >
+        <div class="wrapper">
+        <input type="text" id="search" name="q" autocomplete="off">
+        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+      </form>
+    </div>
+
+    <div class="nav-links">
+        <button id="toggle-theme">Toggle Theme</button>
+        <a href="/logout"><button>Log Out</button></a>
+    </div>
+    
+  </div>
+</nav>
+{{!-- END OF NAV --}}
+
+<div class="main-block">
+
+  {{!-- HEADER BEGINS --}}
+  <div class="header">
+
+    <div class="header-photo-area">
+      {{#if imgPath}}
+      <img src="{{imgPath}}" style="margin-top: 44px; padding: 0; width: 200px; height: 200px; border-radius: 50%;">
+      {{else}}
+      <div class="header-photo-circle"></div>
+      {{/if}}
+    </div>
+
+    <div class="header-labels">
+      {{#if artisticName}}
+      <div class="h1-profile">{{artisticName}}</div>
+      {{else}}
+      <div class="h1-profile">{{username}}</div>
+      {{/if}}
+
+      <div class="h2-profile">Location</div>
+    </div>
+
+  </div>
+  {{!-- END OF HEADER --}}
+
+  {{!-- PROFILE CONTENT BEGINS --}}
+  {{!-- <div class="main-profile-block"> --}}
+    <div class="profile-content">
+
+      {{!-- PROFILE NAV BEGINS --}}
+      <div class="profile-nav">
+        <div class="profile-nav-links">
+          <ul>
+            <li class="link-container"><a href="#">All</a></li>
+            <li><a href="#">Popular tracks</a></li>
+            <li><a href="#">Tracks</a></li>
+            <li><a href="#">Album</a></li>
+            <li><a href="#">Playlists</a></li>
+            <li><a href="#">Reposts</a></li>
+            <li><a href="#" class="current">Samples</a></li>
+          </ul>
+        </div>
+          
+          {{!-- EDIT PROFILE MODAL BEGINS --}}
+          <button class="button" data-modal="editProducer">Edit</button></a>
+            <div id="editProducer" class="modal-bg">
+              <div class="modal-contents">
+                        
+                <form action="/producerProfile/edit"  method="POST" enctype="multipart/form-data">
+                  <div class="edit-your-profile">
+                    <div class="title">Edit your Profile</div>
+                    <div class="close">&times;</div>
+                  </div>
+
+                  <div class="edit-profile-contents">
+                    <div class="wrapper">
+
+                      <div class="photo">
+                        {{#if imgPath}}
+                            <img src="{{imgPath}}" style="margin: 20px 0; padding: 0; max-width: 200px max-height: 200px; border-radius: 50%;">
+                        {{else}}
+                            <div class="edit-profile-photo"></div>
+                        {{/if}}
+                        <label for="avatar"></label>
+                        <input type="file" name="avatar" id="avatar" value="{{imgName}}">
+                      </div>
+
+                      <div class="user-info">
+                          <label for="artisticName">Display Name:</label>
+                          <input type="text" name="artisticName" id="artisticName">
+
+                          <label for="description">Bio:</label>
+                          <input type="text" name="description" id="description">
+
+                          <label for="soundUrl">SoundCloud:</label>
+                          <input type="text" name="soundUrl" id="soundUrl">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="save-profile"><button type="submit">Save</button></div>
+                </form> 
+
+              </div>
+            </div>
+          {{!-- END OF EDIT PROFILE MODAL --}}
+
+
+      </div>
+      {{!-- END OF PROFILE NAV --}}
+
+      {{!-- PROFILE BODY BEGINS --}}
+      <div class="profile-body">
+
+        {{!-- PROFILE MEDIA BEGINS --}}
+        <div class="profile-media">
+          <div class="empty-profile">
+            <h1>Need some inspiration?</h1>
+            <a href="/search"><button>Browse Samples</button></a>
+          </div>
+        </div>
+        {{!-- END OF PROFILE MEDIA --}}
+
+        {{!-- SIDE FOOTER BEGINS --}}
+        <div class="footer">
+          <div class="search-spacer"></div>
+          <!--fix to align with nav-->
+          <div class="footer-app-container"></div> <!-- Create new divider for this purpose-->
+          <div class="footer-links">
+            <a href="#">Legal - </a>
+            <a href="#">Privacy - </a>
+            <a href="#">Cookie Policy - </a>
+            <a href="#">Cookie Manager - </a>
+            <a href="#">Imprint - </a>
+            <a href="#">Creator Resources - </a>
+            <a href="#">Blog - </a>
+            <a href="#">Charts - </a>
+            <a href="#">Popular searches </a>
+          </div>
+          <div class="footer-language">
+            Language: English
+          </div>
+        </div>
+        {{!-- END OF SIDE FOOTER --}}
+
+      </div>
+      {{!-- END OF PROFILE BODY --}}
+
+    </div>
+    {{!-- END OF PROFILE CONTENT --}}
+
+  {{!-- </div> --}}
+
+  {{!-- <button style="margin: 0; position: absolute; top: 10px; right: 10px;" id="toggle-theme">Toggle Theme</button> --}}
+
+</div>
+{{/with}}
